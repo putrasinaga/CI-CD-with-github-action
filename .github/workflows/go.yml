@@ -14,26 +14,26 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v3 #checkout dari git
 
     - name: Set up Go
       uses: actions/setup-go@v3
       with:
-        go-version: 1.19
+        go-version: 1.19 #ambil module dari setup-go
 
     - name: Build
-      run: go build -v ./...
+      run: go build -v ./... #build application golang
 
     - name: Test
-      run: go test -v ./...
+      run: go test -v ./... #melakukan testing automasi 
       
-    - name: Login to Docker Hub
+    - name: Login to Docker Hub #proses login ke dockerhub
       uses: docker/login-action@v2
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
         
-    - name: Build and push
+    - name: Build and push #build image & push image ke dockerhub
       uses: docker/build-push-action@v4
       with:
         context: .

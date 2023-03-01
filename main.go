@@ -6,7 +6,7 @@ import (
 )
 
 func HelloServer(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello, World putra!!")
+	fmt.Fprintf(w, "Hello, World!!")
 }
 
 func Endointsaya(w http.ResponseWriter, r *http.Request) {
